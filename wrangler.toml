@@ -1,7 +1,13 @@
 name = "it-toolbox"
-compatibility_date = "2024-11-01"
+# 必须设置为 pages
+pages = true 
 
-[pages]
-# 告诉 Cloudflare 你的函数入口在哪里
-# 如果你目前的函数文件都在 api/ 目录下，建议将文件夹重命名为 functions
-# 因为 Cloudflare Pages 默认只识别名为 functions 的文件夹
+# 定义与 Cloudflare 兼容的日期
+compatibility_date = "2024-11-01"
+# 启用最新的功能特性
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+# 如果你的构建流程在 package.json 中，通常不需要在这里写 build_command
+# Cloudflare 会自动执行你在控制台设置的 Build Command
+# 但建议确保你的函数所在目录被正确识别
