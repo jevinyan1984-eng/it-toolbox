@@ -1,13 +1,33 @@
 name = "it-toolbox"
-# 必须设置为 pages
-pages = true 
-
-# 定义与 Cloudflare 兼容的日期
 compatibility_date = "2024-11-01"
-# 启用最新的功能特性
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
 
-[build]
-# 如果你的构建流程在 package.json 中，通常不需要在这里写 build_command
-# Cloudflare 会自动执行你在控制台设置的 Build Command
-# 但建议确保你的函数所在目录被正确识别
+[vars]
+ENVIRONMENT = "production"
+
+# ============================================================
+# 配置说明
+# 
+# 1. 生产部署：推荐在 Cloudflare Dashboard 中绑定资源
+#    路径：Workers & Pages → 项目 → Settings → Functions
+#    无需创建此配置文件
+#
+# 2. 本地开发：复制此文件为 wrangler.toml 并填入配置
+#    cp wrangler.example.toml wrangler.toml
+#
+# 3. wrangler.toml 已加入 .gitignore，不会被提交
+# ============================================================
+
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "YOUR_KV_NAMESPACE_ID"
+# preview_id = "YOUR_PREVIEW_KV_ID_HERE"
+
+
+
+# [ai]
+# binding = "AI"
+
+# Secrets (通过 Dashboard 或 wrangler secret put 配置)
+# EXCHANGE_API_KEY
