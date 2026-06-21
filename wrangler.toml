@@ -1,0 +1,7 @@
+name = "it-toolbox"
+compatibility_date = "2024-11-01"
+
+[pages]
+# 告诉 Cloudflare 你的函数入口在哪里
+# 如果你目前的函数文件都在 api/ 目录下，建议将文件夹重命名为 functions
+# 因为 Cloudflare Pages 默认只识别名为 functions 的文件夹
